@@ -6,5 +6,5 @@
     "default": 10,
     "max": 50
   },
-  "postgres": "postgres://postgres:iput@localhost:5432/LATIHAN-DESIGN"
+  "postgres": "postgres://postgres@localhost:5432/LATIHAN-DESIGN"
 }
