@@ -1,20 +1,22 @@
-const relation = require('../../hooks/second-relation');
-const {populate, discard} = require('feathers-hooks-common');
+//** here's im adding my hook second-relation.js */
 
-const schema = {
-  include: {
-    service: 'todoitems',
-    namesAs: 'todoitems',
-    parentField: 'id',
-    childField: 'todolistsId',
-  },
-};
+const relation = require('../../hooks/second-relation');
+// const {populate, discard} = require('feathers-hooks-common');
+
+// const schema = {
+//   include: {
+//     service: 'todoitems',
+//     namesAs: 'todoitems',
+//     parentField: 'id',
+//     childField: 'todolistsId',
+//   },
+// };
 
 // const todoItems = require('../../models/todoitems.model');
-const todoItems = require('../todoitems/todoitems.service');
+// const todoItems = require('../todoitems/todoitems.service');
 module.exports = {
   before: {
-    all: [],
+    all: [relation()],
     find: [],
     get: [],
     create: [],
@@ -24,7 +26,9 @@ module.exports = {
   },
 
   after: {
-    all: [discard('_include'), populate({schema})],
+    all: [
+      // discard('_include'), populate({schema})
+    ],
     find: [],
     get: [],
     create: [],
